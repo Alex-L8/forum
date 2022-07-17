@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
  * Create by LCX on 7/14/2022 3:40 PM
  */
 
-@Mapper
+//@Mapper
 @Repository
 public interface UserMapper extends BaseMapper<User> {
 //    @Select("select * from user where #{id}")
