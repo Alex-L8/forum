@@ -34,14 +34,14 @@
 						<li class="nav-item ml-3 btn-group-vertical">
 							<a class="nav-link" th:href="@{/index}">首页</a>
 						</li>
-						<li class="nav-item ml-3 btn-group-vertical" th:if="${loginUser!=null}">
+						<!--<li class="nav-item ml-3 btn-group-vertical" th:if="${loginUser!=null}">
 							<a class="nav-link position-relative" th:href="@{/letter/list}">消息<span
 									class="badge badge-danger" th:text="${allUnreadCount!=0?allUnreadCount:''}">12</span></a>
-						</li>
+						</li>-->
 						<li class="nav-item ml-3 btn-group-vertical" th:if="${loginUser==null}">
 							<a class="nav-link" th:href="@{/register}">注册</a>
 						</li>
-						<li class="nav-item ml-3 btn-group-vertical" th:if="${loginUser==null}">
+						<li class="nav-item ml-3 btn-group-vertical" th:if="${lginUser==null}">
 							<a class="nav-link" th:href="@{/login}">登录</a>
 						</li>
 						<li class="nav-item ml-3 btn-group-vertical dropdown" th:if="${loginUser!=null}">
@@ -75,12 +75,12 @@
 			<div class="position-relative">
 				<!-- 筛选条件 -->
 				<ul class="nav nav-tabs mb-3">
-					<li class="nav-item">
+					<!--<li class="nav-item">
 						<a th:class="|nav-link ${orderMode==0?'active':''}|" th:href="@{/index(orderMode=0)}">最新</a>
 					</li>
 					<li class="nav-item">
 						<a th:class="|nav-link ${orderMode==1?'active':''}|" th:href="@{/index(orderMode=1)}">最热</a>
-					</li>
+					</li>-->
 				</ul>
 				<button type="button" class="btn btn-primary btn-sm position-absolute rt-0" data-toggle="modal"
 						data-target="#publishModal" th:if="${loginUser!=null}">我要发布
@@ -132,7 +132,7 @@
 			</div>
 
 			<!-- 帖子列表 -->
-			<ul class="list-unstyled">
+			<!--<ul class="list-unstyled">
 				<li class="media pb-3 pt-3 mb-3 border-bottom" th:each="map:${discussPosts}">
 					<a th:href="@{|/user/profile/${map.user.id}|}">
 						<img th:src="${map.user.headerUrl}" class="mr-4 rounded-circle" alt="用户头像"
@@ -159,7 +159,7 @@
 					</div>
 				</li>
 			</ul>
-			<!-- 分页 -->
+			&lt;!&ndash; 分页 &ndash;&gt;
 			<nav class="mt-5" th:if="${page.rows>0}" th:fragment="pagination">
 				<ul class="pagination justify-content-center">
 					<li class="page-item">
@@ -178,7 +178,7 @@
 						<a class="page-link" th:href="@{${page.path}(current=${page.total})}">末页</a>
 					</li>
 				</ul>
-			</nav>
+			</nav>-->
 		</div>
 	</div>
 

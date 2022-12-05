@@ -5,6 +5,11 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -25,13 +30,15 @@ public class LoginTicket implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    private Integer userId;
+    private Long userId;
 
     private String ticket;
 
     @ApiModelProperty("0-有效; 1-无效;")
     private Integer status;
 
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime expired;
 
     public Long getId() {
@@ -41,11 +48,11 @@ public class LoginTicket implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
     public String getTicket() {
@@ -66,7 +73,7 @@ public class LoginTicket implements Serializable {
         return expired;
     }
 
-    public void setExpired(LocalDateTime expired) {
+        public void setExpired(LocalDateTime expired) {
         this.expired = expired;
     }
 

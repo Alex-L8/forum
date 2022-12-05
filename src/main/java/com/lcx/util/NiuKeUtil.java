@@ -2,6 +2,7 @@ package com.lcx.util;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.lang.Nullable;
 import org.springframework.util.DigestUtils;
 
 import java.time.Instant;
@@ -40,7 +41,7 @@ public class NiuKeUtil {
         return json.toString();
     }
 
-    public static String getJSONString(int code, String msg) {
+    public static String getJSONString(int code,@Nullable String msg) {
         return getJSONString(code, msg, null);
     }
 

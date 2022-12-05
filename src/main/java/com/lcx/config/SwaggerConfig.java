@@ -19,7 +19,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 public class SwaggerConfig {
     @Bean
     public Docket webApiConfig(){
-        return new Docket(DocumentationType.SWAGGER_2)
+        return new Docket(DocumentationType.OAS_30)
                 .apiInfo(apiInfo()) // 用来展示该 API 的基本信息
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.lcx.controller")) // 设置扫描路径

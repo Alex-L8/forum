@@ -1,6 +1,8 @@
 package com.lcx;
 
+import com.lcx.dao.DiscussPostMapper;
 import com.lcx.dao.UserMapper;
+import com.lcx.entity.DiscussPost;
 import com.lcx.entity.User;
 import com.lcx.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.Assertions;
@@ -25,6 +27,8 @@ public class MybatisPlusTest {
     @Resource
     private UserServiceImpl userService;
 
+    @Autowired
+    private DiscussPostMapper discussPostMapper;
 
     @Test
     public void deleteById() {
@@ -47,5 +51,11 @@ public class MybatisPlusTest {
         Assertions.assertEquals(true, result);
     }
 
+
+    @Test
+    public void testSelectPosts() {
+        List<DiscussPost> discussPosts = discussPostMapper.selectDiscussPosts(1549831651423428610L, 0, 5);
+        System.out.println(discussPosts.toString());
+    }
 
 }

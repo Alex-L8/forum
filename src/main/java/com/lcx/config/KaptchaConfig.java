@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Properties;
 
 /**
+ * 验证码
  * Create by LCX on 7/17/2022 2:00 PM
  */
 @Configuration
